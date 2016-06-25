@@ -3,7 +3,7 @@
 <generator uri="http://jekyllrb.com" version="3.0.1">Jekyll</generator>
 <link href="http://mengdong.github.io/feed.xml" rel="self" type="application/atom+xml" />
 <link href="http://mengdong.github.io/" rel="alternate" type="text/html" />
-<updated>2016-06-25T15:14:39-07:00</updated>
+<updated>2016-06-25T15:21:24-07:00</updated>
 <id>http://mengdong.github.io/</id>
 <subtitle>Dong&#39;s personal website</subtitle>
 <author>
@@ -15,13 +15,13 @@
 <published>2016-06-25T08:16:00-07:00</published>
 <updated>2016-06-25T08:16:00-07:00</updated>
 <id>http://mengdong.github.io/2016/06/25/my-first-blog</id>
-<content type="html" xml:base="http://mengdong.github.io/2016/06/25/my-first-blog/">&lt;p&gt;This is my first blog. Try out a few thing here&lt;/p&gt;
+<content type="html" xml:base="http://mengdong.github.io/2016/06/25/my-first-blog/">&lt;p&gt;This is my first blog. Try out a few things here&lt;/p&gt;
 
-&lt;p&gt;I am currently &lt;a href=&quot;http://www.mapr.com/&quot;&gt;MapR Techologies&lt;/a&gt;. I will be posting on company&#39;s website as well, &lt;a href=&quot;https://www.mapr.com/blog/author/dong-meng&quot;&gt;my blog on MapR&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I am currently a data scientist at &lt;a href=&quot;http://www.mapr.com/&quot;&gt;MapR Techologies&lt;/a&gt;. I will be posting on my company&#39;s website as well, &lt;a href=&quot;https://www.mapr.com/blog/author/dong-meng&quot;&gt;my blogs on MapR&lt;/a&gt;.&lt;/p&gt;
 </content>
 <author>
 <name>Dong Meng</name>
 </author>
-<summary>This is my first blog. Try out a few thing here</summary>
+<summary>This is my first blog. Try out a few things here</summary>
 </entry>
 </feed>

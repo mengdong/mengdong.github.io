@@ -7,6 +7,6 @@ author:     "Dong Meng"
 header-img: "img/post-bg-04.jpg"
 ---
 
-<p>This is my first blog. Try out a few thing here</p>
+<p>This is my first blog. Try out a few things here</p>
 
-<p>I am currently <a href="http://www.mapr.com/">MapR Techologies</a>. I will be posting on company's website as well, <a href="https://www.mapr.com/blog/author/dong-meng">my blog on MapR</a>.</p>
+<p>I am currently a data scientist at <a href="http://www.mapr.com/">MapR Techologies</a>. I will be posting on my company's website as well, <a href="https://www.mapr.com/blog/author/dong-meng">my blogs on MapR</a>.</p>
