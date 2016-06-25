@@ -14,7 +14,7 @@ linkedin_username: dong-meng-6b7a7b19
 
 # Google Analytics
 # To enable google analytics, uncomment below line with a valid Google Tracking ID
-# google_tracking_id:
+google_tracking_id:UA-79885047-1
 
 # Build settings
 markdown: kramdown
