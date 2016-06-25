@@ -1,9 +1,9 @@
 {
-    "name": "clean-blog",
-    "title": "Clean Blog",
+    "name": "just-another-blog",
+    "title": "Just Another Blog",
     "version": "1.0.0",
-    "homepage": "http://startbootstrap.com",
-    "author": "Start Bootstrap",
+    "homepage": "http://mengdong.github.io",
+    "author": "Dong Meng",
     "license": "MIT",
     "devDependencies": {
         "grunt": "~0.4.5",
@@ -14,6 +14,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/IronSummitMedia/startbootstrap-clean-blog-jekyll.git"
+        "url": "https://github.com/mengdong/mengdong.github.io.git"
     }
 }
