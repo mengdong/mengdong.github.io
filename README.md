@@ -1,2 +1,2 @@
 # mengdong.github.io
-bootstrap personal website
+bootstrap 3 + jekyll + disqus personal website
