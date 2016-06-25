@@ -1,2 +1,26 @@
-permalink: /notes/:year/:month/:day/:title
+# Site settings
+title: Just Another Blog
+header-img: img/home-bg.jpg
+email: mengdong0427@gmail.com
+copyright_name: Dong Meng
+description: "Dong's personal website"
+baseurl: ""
+url: ""
+twitter_username: dong_meng
+github_username:  mengdong
+facebook_username: dong.meng.3  
+email_username:  mengdong0427@gmail.com
+linkedin_username: dong-meng-6b7a7b19
+
+# Google Analytics
+# To enable google analytics, uncomment below line with a valid Google Tracking ID
+# google_tracking_id:
+
+# Build settings
 markdown: kramdown
+highlighter: rouge
+permalink: pretty
+paginate: 5
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+
+gems: [jekyll-paginate, jekyll-feed]

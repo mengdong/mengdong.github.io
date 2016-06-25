@@ -1,21 +1,36 @@
 ---
-layout: default
-title: mengdong.github.io 
-cv: passive
-notes: passive
-contact: passive
-description: Hi, I am Dong Meng and this is my place. 
+layout: page
+description: "A Clean Blog Theme by Start Bootstrap"
 ---
-<!-- <div class="jumbotron"> -->
-<div class="row marketing">
-	<div class="col-sm-4">
-	<img  class="img-circle avatar" alt="Dong Meng" src="img/dong.png">
-	</div>
-	<div itemscope itemtype="http://data-vocabulary.org/Person" class="col-sm-8">
-	<p class="lead">Hi, I'm <span itemprop="name">Dong Meng</span> </p>
-	<p>I am a <span itemprop="title">Data Scientist</span>, <span itemprop="title">Big Data System Engineer</span>, and working for <a href="http://www.mapr.com">MapR Technologies</a>. </p>
-	
-	<p>If you want to reach out to me, feel free to </span> <a href="contact">drop me a line</a> .</p>
-	</div>
+
+{% for post in paginator.posts %}
+<div class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+        <h2 class="post-title">            {{ post.title }}
+        </h2>
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">
+            {{ post.subtitle }}
+        </h3>
+        {% endif %}
+    </a>
+    <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
 </div>
-<!-- </div> -->
+<hr>
+{% endfor %}
+
+<!-- Pager -->
+{% if paginator.total_pages > 1 %}
+<ul class="pager">
+    {% if paginator.previous_page %}
+    <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    </li>
+    {% endif %}
+    {% if paginator.next_page %}
+    <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}
