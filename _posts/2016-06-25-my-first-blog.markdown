@@ -4,6 +4,9 @@ title:      "My First Blog"
 subtitle:   "Writing when I am bored"
 date:       2016-06-25 15:16:00
 author:     "Dong Meng"
+tags:
+    - Open Source
+    - Machine Learning
 header-img: "img/post-bg-04.jpg"
 ---
 
