@@ -8,10 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dong's personal website">
 
-    <title>Something Fun 
- (数据科学) - Just Another Blog</title>
+    <title>Speed Up Ad-hoc Analytics with SparkSQL, Parquet and Alluxio - Just Another Blog</title>
 
-    <link rel="canonical" href="http://mengdong.github.io/projects/">
+    <link rel="canonical" href="http://mengdong.github.io/2016/07/15/alluxio-speed-up-spark/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -91,28 +90,87 @@
 </nav>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/contact-bg.jpg')">
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/post-bg-04.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Something Fun 
- (数据科学)</h1>
-                    <hr class="small">
-                    <span class="subheading">Will post some projects for fun here</span>
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archives" title="Open Source">Open Source</a>
+                        
+                        <a class="tag" href="/archives" title="Big Data">Big Data</a>
+                        
+                        <a class="tag" href="/archives" title="Apache Spark">Apache Spark</a>
+                        
+                        <a class="tag" href="/archives" title="Hadoop">Hadoop</a>
+                        
+                    </div>
+                    <h1>Speed Up Ad-hoc Analytics with SparkSQL, Parquet and Alluxio</h1>
+                    
+                    <h2 class="subheading">when there is a will there's a way</h2>
+                    
+                    <span class="meta">Posted by Dong Meng on July 15, 2016</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-        
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Being a data scientist professional, </p>
+
+<h2 class="section-heading">Install Alluxio with MapR</h2>
+<p><code>mvn clean package -Dhadoop.version=2.7.0-mapr-1602 -Pspark -DskipTests<code>&lt;/p&gt;
+
+</code></code></p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2016/06/25/my-first-blog/" data-toggle="tooltip" data-placement="top" title="My First Blog">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
     </div>
-</div>
+</article>
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//mengdong.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
 
 <hr>
 
