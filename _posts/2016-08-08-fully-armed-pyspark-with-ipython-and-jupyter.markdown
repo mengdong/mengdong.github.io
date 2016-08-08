@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "Fully Arm Your Pyspark with Ipython and Jupyter in Python 3"
-subtitle:   "a summary on pyspark for spark 2.0.0 environment set up in Python 3"
+title:      "Fully Arm Your Spark with Ipython and Jupyter in Python 3"
+subtitle:   "a summary on Spark 2.0.0 environment set up with Python 3"
 date:       2016-08-08 20:15:00
 author:     "Dong Meng"
 tags:
@@ -86,6 +86,10 @@ exec(open(os.path.join(spark_home, 'python/pyspark/shell.py')).read())
 }
 </code></pre>
 
+<h3 class="section-heading">Scala in Jupter Notebook</h3>
+<p>Detailed information could be found here: <a href="http://toree.apache.org/documentation/user/installation.html"> Apache Toree</a>. </p>
+
+<p></p>
 <p>Some reference:</p>
 <p>http://www.davidgreco.me/blog/2015/12/24/how-to-use-jupyter-with-spark-kernel-and-cloudera-hadoop-slash-spark/</p>
 <p>https://jupyter-client.readthedocs.io/en/latest/kernels.html#kernels</p>
