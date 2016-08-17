@@ -8,7 +8,7 @@ tags:
     - Open Source
     - Apache Spark
     - Python
-header-img: "img/post-bg-04.jpg"
+header-img: "img/post-bg-02.jpg"
 
 ---
 <p>This is a memo on configuring Jupyter 4.x to work with pyspark 2.0.0. I am using Mac OS please adjust the steps accordingly for other systems.</p>

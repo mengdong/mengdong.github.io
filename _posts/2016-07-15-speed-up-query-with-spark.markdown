@@ -9,7 +9,7 @@ tags:
     - Big Data
     - Apache Spark
     - Hadoop
-header-img: "img/post-bg-04.jpg"
+header-img: "img/post-bg-03.jpg"
 
 ---
 
