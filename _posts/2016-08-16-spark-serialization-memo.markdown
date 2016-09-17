@@ -39,6 +39,11 @@ class HBaseReader(val table: String) extends Serializable{
         resultScanner.close()
         hbaseArray.toArray
     }
+
+    def close(): Unit = {
+        hTable.close()
+        connection.close()
+    }
 }
 </code></pre>
 
@@ -52,5 +57,33 @@ object TestLazy {
 </code></pre>
 <p>If in scala/spark shell, we execute <code>Test</code>, then <code>Test.x</code>, we will observe that Test.x is intialized when we execute Test. On the other hand, we execute <code>TestLazy</code> then <code>TestLazy.x</code> we will observe that TestLazy.x is initialized when executing TestLazy.x. In Spark, this would translate into we want initalize those vals only when they have been executed on each individual executors. Hence, we can safely use <code>getArray</code> in a RDD map function</p> 
 
+<p>However, in the Hbase production usage, the best practice is to close the connection clearly in your code. And long lasting Hbase connection sometime cannot recover from spark executor failures. In my experience, the best practice is to put the connection life circle inside a function</p>
+
+<pre><code>import org.apache.hadoop.hbase.client.{ConnectionFactory, Scan}
+import org.apache.hadoop.hbase.util.Bytes
+import org.apache.hadoop.hbase.{HBaseConfiguration, TableName}
+import scala.collection.mutable.ArrayBuffer
+
+Object HBaseReader(val table: String) extends Serializable{
+    def getArray(prefixKey: String):Array[String] = {
+        val hBaseConfiguration = HBaseConfiguration.create()
+        val connection = ConnectionFactory.createConnection(hBaseConfiguration)
+        hTable = connection.getTable(TableName.valueOf(table))
+        val hbaseArray = new ArrayBuffer[String]
+        val scan = new Scan()
+        scan.setRowPrefixFilter(Bytes.toBytes(prefixKey))
+        val resultScanner = hTable.getScanner(scan)
+        var result = resultScanner.next()
+        while (result != null) {
+            hbaseArray += Bytes.toString(result.value)
+            result = resultScanner.next()
+        }
+        resultScanner.close()
+        hTable.close()
+        connection.close()
+        hbaseArray.toArray
+    }
+}
+</code></pre>
 
 
