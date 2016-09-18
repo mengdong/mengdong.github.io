@@ -34,7 +34,7 @@ header-img: "img/predictionio.png"
 
 <h3 class="section-heading">Preparation</h3>
 
-<p>The prerequisite of this article is you have a MapR 5.1 cluster running, with Spark 1.6.1 and Elastic Search server installed. Since we use  MapRDB (1.1.1) for event data storage, Elastic Search for meta data storage, MapRFS for model data storage. In MapRDB, there is no Hbase namespace concept, so the table hierarchy is based on the hierarchy of MapR file system. MapR support namespace mapping for hbase, <a href="
+<p>The prerequisite of this article is you have a MapR 5.1 cluster running, with Spark 1.6.1 and Elastic Search 1.7.5 server installed. Java 1.8 is needed and Java 1.7 will experience erros in compiling. Since we use  MapRDB (1.1.1) for event data storage, Elastic Search for meta data storage, MapRFS for model data storage. In MapRDB, there is no Hbase namespace concept, so the table hierarchy is based on the hierarchy of MapR file system. MapR support namespace mapping for hbase, <a href="
 http://maprdocs.mapr.com/home/MapR-DB/MappingTableNamespaceBetw_28870174-d3e64.html">details here</a>. Please note that the <code>core-site.xml</code> is located at <code>/opt/mapr/hadoop/hadoop-2.7.0/etc/hadoop/</code> as of MapR 5.1 and you should modify core-site.xml and add a configuration as below. Also please create a dedicated MapR volume at the path of your choice. </p>
 <pre><code>&lt;property&gt;
     &lt;name&gt;hbase.table.namespace.mappings&lt;/name&gt;
