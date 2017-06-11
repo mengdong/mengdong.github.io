@@ -18,8 +18,12 @@ header-img: "img/woodlands.JPG"
 在yelp上搜索发现了这家餐馆叫Hubbell&Hudson Bistro，按过往的经验，很多高分的美餐不见得适合国人的口味，但这家的做法非常的融会贯通，能看出主厨是在菜单里面融合了很多亚洲风格的，前菜里面有港式的quails，台湾的刈包，正餐里面也有pekin duck
 breast，不知道跟北京烤鸭有多少联系。并不太复杂的菜单里面也有其他的菜系元素，canjun风格，美式的burger，很多我也不了解的材料跟做法。
 
-我点的前菜是Seared FOIE GRAS Slider，鹅肝煎的恰到好处，被松软的bun包裹住，口感跟味道都非常自然美味，苹果酱的酸甜恰好的冲散了油腻
+值得推荐的前菜是Seared FOIE GRAS Slider，鹅肝煎的恰到好处，被松软的bun包裹住，口感跟味道都非常自然美味，苹果酱的酸甜恰好的冲散了油腻
 <img class="shadow" src="/img/woodlands/foie_gras.JPG" />
+
+这里的汉堡也很有特色，除了德克萨斯独有的超大肉饼，还很有新意的用了干的西红柿，这样保留了西红柿的味道也不会增加太多汁水。其实这里面最好吃的还是放在旁边的pickle，每一块味道都有不同，在吃burger之前推荐先逐次品尝一下。
+<img class="shadow" src="/img/woodlands/burger.JPG" />
+
 主菜是Side by Side CHEF's CUT TASTING，有dry aged跟wet aged的Black Angus Cut各一块，我吃到的应该是ribeye。
 <img class="shadow" src="/img/woodlands/dry-aged-steak.JPG" />
 Dry aged的那块味道非常的地道，大概也是成本比wet aged的要高很多所以才要更加好吃吧，每一口的后劲都绵绵不绝，有很强的层次感，当然汁水要少一些。我觉得这是我吃过的最好的dry aged的牛排之一了。
