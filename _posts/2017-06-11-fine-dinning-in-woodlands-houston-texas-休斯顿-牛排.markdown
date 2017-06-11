@@ -5,8 +5,8 @@ subtitle:   "Dry Aged Steak and foie gras Slider"
 date:       2017-06-11 10:00:00
 author:     "Dong Meng"
 tags:
-    - travel
-    - dinning
+    - Travel
+    - Foodie
 header-img: "img/woodlands.JPG"
 
 ---
