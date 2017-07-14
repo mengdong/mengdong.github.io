@@ -18,6 +18,8 @@ header-img: "img/post-bg-kubernetes.jpg"
 <h3 class="section-heading">Install MapR on CPU and GPU nodes</h3>
 <p>First, we install MapR on the cluster. For simplicity, we put all MapR services on the master node, and leave the GPU for computing.</p>
 <pre><code>
+#set up clustershell and passwordless ssh
+
 apt-get install -y clustershell screen
 vi /etc/clustershell/groups
 all: ip-10-0-0-[226,75,189,121].ec2.internal
@@ -32,8 +34,9 @@ cat ~/.ssh/id_rsa.pub | ssh -i /home/ubuntu/mapr-dm.pem root@ip-10-0-0-226.ec2.i
 cat ~/.ssh/id_rsa.pub | ssh -i /home/ubuntu/mapr-dm.pem root@ip-10-0-0-75.ec2.internal 'cat >> .ssh/authorized_keys'
 cat ~/.ssh/id_rsa.pub | ssh -i /home/ubuntu/mapr-dm.pem root@ip-10-0-0-189.ec2.internal 'cat >> .ssh/authorized_keys'
 cat ~/.ssh/id_rsa.pub | ssh -i /home/ubuntu/mapr-dm.pem root@ip-10-0-0-121.ec2.internal 'cat >> .ssh/authorized_keys'
+
+#start to install MapR
 clush -a 'apt-get update -y'
-apt-get upgrade -y
 clush -a 'apt-get install -y  openjdk-8-jdk'
 clush -a "echo never > /sys/kernel/mm/transparent_hugepage/defrag"
 clush -a "cat >> /etc/security/limits.conf << EOL
@@ -98,12 +101,12 @@ deb http://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 clush -a apt-get update
 clush -a "apt-get install -y kubelet kubeadm kubectl kubernetes-cni"
-clush -a "systemctl enable docker && systemctl start docker"
-clush -a "systemctl enable kubelet && systemctl start kubelet" 
 
 cat >> /etc/systemd/system/kubelet.service.d/10-kubeadm.conf << EOL
 Environment="KUBELET_EXTRA_ARGS=--feature-gates=Accelerators=true"
 EOL
+clush -a "systemctl enable docker && systemctl start docker"
+clush -a "systemctl enable kubelet && systemctl start kubelet" 
 
 kubeadm init --pod-network-cidr=10.244.0.0/16  --apiserver-advertise-address=10.0.0.226
 cp /etc/kubernetes/admin.conf $HOME/
@@ -140,7 +143,7 @@ Host UbuntuK
 
 <p>Then, to enable deep learning applications, we need to install Nvidia driver with Cuda and Cudnn on all the gpu nodes. The driver version will be different given the GPU cards in use.</p>
 <pre><code>
-ush -g gpu  ‘apt-get -y install build-essential cmake g++’
+clush -g gpu 'apt-get -y install build-essential cmake g++'
 clush -g gpu "cat >> /etc/modprobe.d/blacklist-nouveau.conf << EOL
 blacklist nouveau
 options nouveau modeset=0
