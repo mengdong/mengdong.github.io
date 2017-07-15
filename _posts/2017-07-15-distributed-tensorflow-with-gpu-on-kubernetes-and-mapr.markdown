@@ -323,7 +323,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY
 <pre><code>
 '''
 Distributed Tensorflow example of using data parallelism and share model parameters.
-Trains a simple sigmoid neural network on mnist for 20 epochs on three machines using one parameter server.
+Trains a simple sigmoid neural network on mnist for 20 epochs on three kubernetes pods with one parameter server.
 '''
 
 from __future__ import print_function
