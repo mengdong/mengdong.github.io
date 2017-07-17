@@ -10,7 +10,7 @@ tags:
     - Deep Learning
     - Kubernetes
     - TensorFlow
-header-img: "img/post-bg-kubernetes.jpg"
+header-img: "img/kubemapr/post-bg-tensorflowkuber.jpg"
 
 ---
 
