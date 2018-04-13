@@ -13,11 +13,19 @@ header-img: "img/post-bg-04.jpg"
 ---
 
 # Introduction
+Face recognition and detection is a well-studied field in terms of deep learning research. Finding the representation of human face through deep convolutional network is considered the state of art algorithm at the moment. For the purpose of this article, we are leveraging open source pre-trained deep learning models, mxnet-face for face detection and insightface for face recognition. The goal of this article is not to attain a benchmark level accuracy, but rather to demonstrate the flexibility to build deep learning powered application on the MapR data infrastructure and leverage NVIDIA GPUs.
+
 Code could be cloned at [MapR-Stream-MXNet-Face](https://github.com/mengdong/mapr-streams-mxnet-face).
-This project implements mxnet face and insightface with mapr streams for near real time face detection and recognition with deep learning models
+
+# Walk through
+The setup of this demo is around MapR edge cluster and client devices. We use laptop as a MapR client to feed the cluster with real time video feed and to consume the final output of the models. On the MapR cluster, we leverage MapR streams to provide scalable and reliable data infrastructure for sending video frames. On the edge of MapR cluster, we deploy a DGX box to read the original MapR streams with raw video, do inferencing and write to another processed MapR streams.
+
+<img class="shadow" src="/img/streams-arch.png" />
+
+For the ease of deployment, we leverage nvidia docker to launch MapR PACC container using the GPU to serve the deep learning model. Also on client side, we use MapR PACC to identify new faces with a uploaded image and display the processed MapR streams. So that user doesn’t have to go through the trouble to configure the deep learning library dependencies. On the deep learning model side, as first step, we used mxnet-face to detect all faces in a video frame. Then we crop the face to 112x112 and send them to insightface, where it is use a conv3x3 and stride =1 as first convolutional layer, which is followed by fine-tuned deep residual neural net architecture. The technical details could be find in this [paper](https://jiankangdeng.github.io/resources/paper/Deng_ArcFace_submit_IJCV_2018_paper.pdf). The frame with detected faces and all the bounding boxes, face embedding vectors will be written a processed MapR Stream. We then use the outputted face embedding vector to calculate the similarity of faces with cosine distance and compare with the uploaded new images for output.
 
 # Get pre-trained models
-After clone the repo, get the face detection from [mxnet-face](https://github.com/tornadomeet/mxnet-face), whereas the model is stored at [dropbox](https://www.dropbox.com/sh/yqn8sken82gpmfr/AAC8WNSaA1ADVuUq8yaPQF0da?dl=0). Also the face recogition model from                   [insightface](https://github.com/deepinsight/insightface) whereas the model is stored at [google drive](https://drive.google.com/file/d/1x0-EiYX9jMUKiq-n1Bd9OCK4fVB3a54v/view)
+After clone the repo, get the face detection from [mxnet-face](https://github.com/tornadomeet/mxnet-face), whereas the model is stored at [dropbox](https://www.dropbox.com/sh/yqn8sken82gpmfr/AAC8WNSaA1ADVuUq8yaPQF0da?dl=0). Also the face recogition model fromc[insightface](https://github.com/deepinsight/insightface) whereas the model is stored at [google drive](https://drive.google.com/file/d/1x0-EiYX9jMUKiq-n1Bd9OCK4fVB3a54v/view)
 
 put model-0000.params under "consumer/models/", put mxnet-face-fr50-0000.params under "consumer/deploy"
 
