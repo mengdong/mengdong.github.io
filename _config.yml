@@ -22,7 +22,7 @@ google_tracking_id: UA-79885047-1
 markdown: kramdown
 highlighter: rouge
 permalink: pretty
-paginate: 5
+paginate: 3 
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
 gems: [jekyll-paginate, jekyll-feed]
