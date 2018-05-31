@@ -2,7 +2,7 @@
 layout:     post
 title:      "Python Machine Learning Project Template"
 subtitle:   "pylint, Cookiecutter, project structure"
-date:       2018-05-30 00:01:00
+date:       2018-05-28 00:01:00
 author:     "Dong Meng"
 tags:
     - Open Source
