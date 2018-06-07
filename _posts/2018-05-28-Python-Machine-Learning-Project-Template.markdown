@@ -14,7 +14,7 @@ header-img: "img/post-bg-03.jpg"
 
 # Introduction
 
-Recently, it came to my notice that I need to focus on improve coding quality, I have modified my previous template for python related machine learning projects, added pylint and imporved the skeleton on Cookiecutter project structure. I will continue to add some example project code to this repo [python-ml-structure](https://github.com/mengdong/python-ml-structure)
+Recently, I have modified my previous template for python related machine learning projects, added pylint and imporved the skeleton on Cookiecutter project structure. I will continue to add some example project code to this repo [python-ml-structure](https://github.com/mengdong/python-ml-structure)
 
 <pre><code>
 Project Organization
