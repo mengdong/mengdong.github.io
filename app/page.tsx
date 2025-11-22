@@ -1,6 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
+import { getSortedPostsData } from "./lib/posts";
 
 export default function Home() {
+  // Get top 2 recent posts
+  const recentPosts = getSortedPostsData().slice(0, 2);
+
   return (
     <div className="flex flex-col gap-8">
       {/* Banner Section */}
@@ -26,10 +31,8 @@ export default function Home() {
       </section>
 
       <section className="py-4">
-        <h1 className="text-4xl font-bold mb-4">Hi, I'm Dong Meng 👋</h1>
-        <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
-          I'm an engineer passionate about AI technologies and poker competitions.
-        </p>
+        <h1 className="text-4xl font-bold mb-4">Full time AI Engineer, Part time Punting</h1>
+
         <div className="flex gap-4">
           <a 
             href="/about" 
@@ -47,8 +50,33 @@ export default function Home() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-bold mb-4">Recent Posts</h2>
-        <p className="text-gray-500">Coming soon...</p>
+        <h2 className="text-2xl font-bold mb-6">Recent Posts</h2>
+        <div className="space-y-6">
+          {recentPosts.length > 0 ? (
+            recentPosts.map(({ slug, date, title, excerpt }) => (
+              <article key={slug} className="group">
+                <Link href={`/blog/${slug}`} className="block p-6 bg-gray-50 dark:bg-gray-900 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                  <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {title}
+                  </h3>
+                  <div className="text-sm text-gray-500 mb-3">{date}</div>
+                  <p className="text-gray-600 dark:text-gray-300 line-clamp-2">
+                    {excerpt}
+                  </p>
+                </Link>
+              </article>
+            ))
+          ) : (
+            <p className="text-gray-500">Coming soon...</p>
+          )}
+        </div>
+        {recentPosts.length > 0 && (
+          <div className="mt-6 text-center sm:text-left">
+            <Link href="/blog" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">
+              View all posts &rarr;
+            </Link>
+          </div>
+        )}
       </section>
     </div>
   );

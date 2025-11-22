@@ -1,7 +1,7 @@
 ---
 title: "Hello World"
 date: "2025-11-20"
-excerpt: "This is my first blog post using Next.js and Markdown."
+excerpt: "This is my first blog post"
 ---
 
 # Hello World

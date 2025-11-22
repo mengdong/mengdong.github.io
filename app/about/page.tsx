@@ -8,7 +8,7 @@ export default function AboutPage() {
     <div className="prose dark:prose-invert max-w-none">
       <h1 className="text-3xl font-bold mb-6">About Me</h1>
       <p className="mb-4">
-        Hello! I currently manage an elite solutions architect team at NVIDIA, 
+        Hello! I am currently an Engineer Manager at NVIDIA, 
         focusing on AI infrastructure, Deep Learning Performance and Cloud Managed Services. 
         I enjoy working with AI technologies, try to stay up to date with LLM development. 
       </p>
