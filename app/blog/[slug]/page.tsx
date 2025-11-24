@@ -2,6 +2,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { getPostData, getSortedPostsData } from '../../lib/posts';
 import Link from 'next/link';
+import Comments from '../../components/Comments';
 
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
@@ -35,7 +36,7 @@ export default async function Post(props: { params: Promise<{ slug: string }> })
       <div className="prose dark:prose-invert max-w-none">
         <ReactMarkdown>{postData.content}</ReactMarkdown>
       </div>
+      <Comments />
     </article>
   );
 }
-
