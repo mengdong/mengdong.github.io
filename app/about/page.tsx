@@ -18,6 +18,34 @@ export default function AboutPage() {
         And I am on the endeavor to collect more titles.
       </p>
       
+      <h2 className="text-2xl font-bold mt-8 mb-4">My WSOP TOC final table live stream</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="flex flex-col gap-2">
+          <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
+            <iframe 
+              className="absolute top-0 left-0 w-full h-full"
+              src="https://www.youtube.com/embed/elrqwXDo9Z8?start=18120" 
+              title="2023 WSOP Event #89 Final Table"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowFullScreen
+            ></iframe>
+          </div>
+          <p className="text-sm text-center text-gray-500 dark:text-gray-400 italic">2023 WSOP Event #89 Final Table</p>
+        </div>
+        <div className="flex flex-col gap-2">
+          <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
+            <iframe 
+              className="absolute top-0 left-0 w-full h-full"
+              src="https://www.youtube.com/embed/6WbSIy7dpxY?start=7144" 
+              title="2024 WSOP Tournament of Champions Final Table"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowFullScreen
+            ></iframe>
+          </div>
+          <p className="text-sm text-center text-gray-500 dark:text-gray-400 italic">2024 WSOP Tournament of Champions Final Table</p>
+        </div>
+      </div>
+
       <h2 className="text-2xl font-bold mt-8 mb-4">News</h2>
       <ul className="list-none space-y-4">
         <li>
