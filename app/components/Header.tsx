@@ -16,6 +16,12 @@ const Header = () => {
         <Link href="/blog" className="hover:text-black dark:hover:text-white transition-colors">
           Blog
         </Link>
+        <Link
+          href="/pfr-calculator"
+          className="hover:text-black dark:hover:text-white transition-colors"
+        >
+          PFR calculator
+        </Link>
       </nav>
     </header>
   );
