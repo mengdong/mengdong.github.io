@@ -263,7 +263,10 @@ export default function PfrCalculator() {
           fold-or-3-bet after (no flats). <strong>PFR</strong> here is the probability
           you put in a preflop raise, averaged uniformly over all nine seats (UTG…
           BB): your first-in open when the pot is unopened, plus 3-bets after someone
-          else opened first (sequential fold-or-3-bet). Combo weights are{" "}
+          else opened first (sequential fold-or-3-bet). The sidebar shows{" "}
+          <strong>PFR</strong> (any preflop raise) and <strong>3-bet</strong> (only
+          the reraise-after-open path), each averaged uniformly over UTG…BB. Combo
+          weights are{" "}
           <span className="font-mono text-xs">combos/1326</span> for both RFI and
           3-bet frequencies.
         </p>
@@ -401,12 +404,26 @@ export default function PfrCalculator() {
             </p>
           </div>
 
+          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4 shadow-sm">
+            <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3">
+              3-bet
+            </h2>
+            <p className="text-4xl font-bold tabular-nums text-amber-600 dark:text-amber-400">
+              {(100 * combined.ringAverageThreeBetNineSeats).toFixed(2)}%
+            </p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+              Same model and seat weighting: probability you put in a 3-bet (not the
+              first raise of the hand).
+            </p>
+          </div>
+
           <div className="rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
             <table className="w-full text-xs">
               <thead>
                 <tr className="bg-gray-50 dark:bg-gray-800/80 border-b border-gray-200 dark:border-gray-700">
                   <th className="text-left p-2 font-medium">Seat</th>
                   <th className="text-right p-2 font-medium">P(raise)</th>
+                  <th className="text-right p-2 font-medium">P(3-bet)</th>
                 </tr>
               </thead>
               <tbody>
@@ -418,6 +435,9 @@ export default function PfrCalculator() {
                     <td className="p-2 font-medium">{p}</td>
                     <td className="p-2 text-right tabular-nums">
                       {(100 * combined.perSeatRaiseProb[i]).toFixed(2)}%
+                    </td>
+                    <td className="p-2 text-right tabular-nums text-gray-600 dark:text-gray-400">
+                      {(100 * combined.perSeatThreeBetProb[i]).toFixed(2)}%
                     </td>
                   </tr>
                 ))}

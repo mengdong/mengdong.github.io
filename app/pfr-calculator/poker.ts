@@ -122,10 +122,16 @@ function threeBetT(
 
 export type CombinedPfrResult = {
   rfi: PfrBreakdown;
-  /** P(raise) for each seat in PREFLOP_ORDER (RFI + 3-bet), fold/open/3bet-only toy model */
+  /** P(RFI only) per seat: Q_h f_h for UTG…SB, 0 for BB */
+  perSeatRfiProb: number[];
+  /** P(3-bet) per seat under sequential fold-or-3-bet after a first open */
+  perSeatThreeBetProb: number[];
+  /** P(raise) = RFI + 3-bet per seat */
   perSeatRaiseProb: number[];
-  /** (1/9) Σ_h perSeatRaiseProb[h] — uniform random seat UTG…BB */
+  /** (1/9) Σ_h perSeatRaiseProb[h] */
   ringAveragePfrNineSeats: number;
+  /** (1/9) Σ_h perSeatThreeBetProb[h] */
+  ringAverageThreeBetNineSeats: number;
 };
 
 /**
@@ -133,6 +139,7 @@ export type CombinedPfrResult = {
  * each later seat either 3-bets (with marginal combo rate) or folds; no calls.
  * P(you 3-bet | opener o) = P(first open o) × Π_{r between o and you}(1−t_{o,r}) × t_{o,you}.
  * Total P(you raise) = P(RFI from you) + Σ_o P(3-bet vs o). Ring PFR = mean over 9 seats.
+ * Ring 3-bet % uses the same per-seat 3-bet probabilities averaged over UTG…BB.
  */
 export function computeCombinedPfr(
   rfiRanges: readonly ReadonlySet<string>[],
@@ -144,11 +151,12 @@ export function computeCombinedPfr(
 
   const P_firstOpen: number[] = POSITIONS.map((_, o) => Q[o] * f[o]);
 
-  const perSeatRaiseProb = PREFLOP_ORDER.map((_, h) => {
-    let p = 0;
-    if (h < nOpen) {
-      p += Q[h] * f[h];
-    }
+  const perSeatRfiProb: number[] = [];
+  const perSeatThreeBetProb: number[] = [];
+  const perSeatRaiseProb: number[] = [];
+
+  for (let h = 0; h < PREFLOP_ORDER.length; h++) {
+    let p3 = 0;
     for (let o = 0; o < nOpen; o++) {
       if (h <= o) continue;
       const pOcc = P_firstOpen[o];
@@ -160,13 +168,26 @@ export function computeCombinedPfr(
       }
       const hero = PREFLOP_ORDER[h];
       const tHero = threeBetT(threeBet, POSITIONS[o], hero);
-      p += pOcc * prod * tHero;
+      p3 += pOcc * prod * tHero;
     }
-    return p;
-  });
+    const pRfi = h < nOpen ? Q[h] * f[h] : 0;
+    perSeatRfiProb.push(pRfi);
+    perSeatThreeBetProb.push(p3);
+    perSeatRaiseProb.push(pRfi + p3);
+  }
 
+  const nSeats = PREFLOP_ORDER.length;
   const ringAveragePfrNineSeats =
-    perSeatRaiseProb.reduce((a, b) => a + b, 0) / PREFLOP_ORDER.length;
+    perSeatRaiseProb.reduce((a, b) => a + b, 0) / nSeats;
+  const ringAverageThreeBetNineSeats =
+    perSeatThreeBetProb.reduce((a, b) => a + b, 0) / nSeats;
 
-  return { rfi, perSeatRaiseProb, ringAveragePfrNineSeats };
+  return {
+    rfi,
+    perSeatRfiProb,
+    perSeatThreeBetProb,
+    perSeatRaiseProb,
+    ringAveragePfrNineSeats,
+    ringAverageThreeBetNineSeats,
+  };
 }
